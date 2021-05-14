@@ -16,7 +16,7 @@
           Signup
         </nuxt-link>
         <a
-          href="https://github.com/HugoDF/nuxt-express-postgres-starter"
+          href="#"
           target="_blank"
           class="button is-medium is-primary"
         >GitHub</a>

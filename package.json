@@ -10,7 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "precommit": "npm run lint",
+    "precommit": "yarn run lint",
     "test": "jest",
     "migrate": "node ./bin/migrate.js",
     "migrate:create": "migrate create --migrations-dir='./express/migrations'"
@@ -27,7 +27,8 @@
     "nuxt-express-module": "0.0.11",
     "pg": "^7.18.2",
     "sql-template-strings": "^2.2.2",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "webpack-dev-middleware": "^4.2.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

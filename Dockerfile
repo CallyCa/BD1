@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:11
 
 ENV HOST 0.0.0.0
 
@@ -10,11 +10,11 @@ WORKDIR /app
 COPY ./package.json .
 COPY ./package-lock.json .
 
-RUN npm install
+RUN npm install -g yarn && yarn
 
 COPY . .
 
-RUN npm run build
+RUN yarn run build
 
 EXPOSE 5000
 

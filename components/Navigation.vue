@@ -6,7 +6,7 @@
       </nuxt-link>
       <a
         class="navbar-item"
-        href="https://github.com/HugoDF/nuxt-express-postgres-starter"
+        href="#"
         target="_blank"
       >Documentation</a>
     </div>
