@@ -1,4 +1,4 @@
-FROM node:11
+FROM node:10
 
 ENV HOST 0.0.0.0
 
@@ -8,9 +8,9 @@ ARG API_URL_BROWSER
 WORKDIR /app
 
 COPY ./package.json .
-COPY ./package-lock.json .
+COPY ./yarn.lock .
 
-RUN npm install -g yarn && yarn
+RUN yarn install
 
 COPY . .
 
@@ -18,4 +18,4 @@ RUN yarn run build
 
 EXPOSE 5000
 
-CMD npm start
+CMD yarn start
