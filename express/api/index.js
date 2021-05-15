@@ -16,7 +16,7 @@ router.use(
   clientSession({
     cookieName: 'session',
     secret: SESSION_SECRET,
-    duration: 24 * 60 * 60 * 1000
+    duration: 24 * 60 * 60 * 1000,
   })
 )
 router.use(helmet())

@@ -10,16 +10,16 @@ new Promise((resolve, reject) => {
   migrate.load(
     {
       stateStore,
-      migrationsDirectory
+      migrationsDirectory,
     },
-    function(err, set) {
+    function (err, set) {
       if (err) {
         reject(err)
       }
       if (typeof set[command] !== 'function') {
         reject(new Error('Command is not a function'))
       }
-      set[command](function(err) {
+      set[command](function (err) {
         if (err) reject(err)
         resolve()
       })
@@ -30,7 +30,7 @@ new Promise((resolve, reject) => {
     console.log(`migrations "${command}" successfully ran`)
     process.exit(0)
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err.stack)
     process.exit(1)
   })

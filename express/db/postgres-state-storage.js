@@ -1,7 +1,7 @@
 const sql = require('sql-template-strings')
 const db = require('./db')
 
-const ensureMigrationsTable = db =>
+const ensureMigrationsTable = (db) =>
   db.query(
     'CREATE TABLE IF NOT EXISTS migrations (id integer PRIMARY KEY, data jsonb NOT NULL)'
   )
@@ -33,7 +33,7 @@ const postgresStateStorage = {
 
     const migrationMetaData = {
       lastRun: set.lastRun,
-      migrations: set.migrations
+      migrations: set.migrations,
     }
 
     await db.query(sql`
@@ -43,9 +43,9 @@ const postgresStateStorage = {
     `)
 
     fn()
-  }
+  },
 }
 
-module.exports = Object.assign(function() {
+module.exports = Object.assign(function () {
   return postgresStateStorage
 }, postgresStateStorage)

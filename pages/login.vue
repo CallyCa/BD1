@@ -1,11 +1,9 @@
 <template>
   <div class="section">
     <FormContainer>
-      <template v-slot:form>
+      <template #form>
         <form @submit="submitLogin($event)">
-          <h1 class="title">
-            Login
-          </h1>
+          <h1 class="title">Login</h1>
           <div v-if="error">
             {{ error }}
           </div>
@@ -23,10 +21,8 @@
           </b-field>
         </form>
       </template>
-      <template v-slot:footer-link>
-        <nuxt-link to="/signup">
-          Don't have an account? Sign up
-        </nuxt-link>
+      <template #footer-link>
+        <nuxt-link to="/signup"> Don't have an account? Sign up </nuxt-link>
       </template>
     </FormContainer>
   </div>
@@ -37,13 +33,13 @@ import FormContainer from '~/components/FormContainer'
 
 export default {
   components: {
-    FormContainer
+    FormContainer,
   },
   data() {
     return {
       email: '',
       password: '',
-      error: null
+      error: null,
     }
   },
   fetch({ store, query, redirect }) {
@@ -51,36 +47,36 @@ export default {
       redirect('/dashboard')
     }
   },
-  mounted() {
-    if (this.$route.query.authError) {
-      this.$toast.open({
-        message: 'Please login for access'
-      })
-    }
-  },
+  // mounted() {
+  //   if (this.$route.query.authError) {
+  //     this.$toast.open({
+  //       message: 'Please login for access',
+  //     })
+  //   }
+  // },
   methods: {
     submitLogin(e) {
       e.preventDefault()
       this.$axios
         .$post('/api/sessions', {
           email: this.email,
-          password: this.password
+          password: this.password,
         })
         .then(() => {
-          this.$toast.open({
-            message: 'Logged in successfully',
-            type: 'is-success'
-          })
+          // this.$toast.open({
+          //   message: 'Logged in successfully',
+          //   type: 'is-success',
+          // })
           this.$router.push('/dashboard')
         })
-        .catch(err => {
-          this.$toast.open({
-            message: `Whoops something went wrong: ${err.message}`,
-            type: 'is-danger'
-          })
-        })
-    }
-  }
+        // .catch((err) => {
+        //   this.$toast.open({
+        //     message: `Whoops something went wrong: ${err.message}`,
+        //     type: 'is-danger',
+        //   })
+        // })
+    },
+  },
 }
 </script>
 

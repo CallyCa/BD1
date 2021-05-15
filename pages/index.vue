@@ -2,9 +2,7 @@
   <section class="container">
     <div>
       <logo />
-      <h1 class="title">
-        Nuxt Express Postgres Starter
-      </h1>
+      <h1 class="title">Nuxt Express Postgres Starter</h1>
       <h2 class="subtitle">
         A full-stack starter project with Nuxt, Express and Postgres
       </h2>
@@ -15,11 +13,9 @@
         <nuxt-link class="button is-medium is-light" to="/signup">
           Signup
         </nuxt-link>
-        <a
-          href="#"
-          target="_blank"
-          class="button is-medium is-primary"
-        >GitHub</a>
+        <a href="#" target="_blank" class="button is-medium is-primary"
+          >GitHub</a
+        >
       </div>
     </div>
   </section>
@@ -30,8 +26,8 @@ import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo
-  }
+    Logo,
+  },
 }
 </script>
 

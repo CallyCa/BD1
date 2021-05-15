@@ -25,5 +25,5 @@ module.exports = {
     await db.query(sql`
     DELETE FROM sessions WHERE id = ${id};
     `)
-  }
+  },
 }

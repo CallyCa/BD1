@@ -28,5 +28,5 @@ module.exports = {
     SELECT * FROM users WHERE email=${email} LIMIT 1;
     `)
     return rows[0]
-  }
+  },
 }

@@ -1,15 +1,22 @@
 <template>
   <div class="section">
     <FormContainer>
-      <template v-slot:form>
+      <template #form>
         <form @submit="submitSignup($event)">
-          <h1 class="title">
-            Sign up
-          </h1>
+          <h1 class="title">Sign up</h1>
           <b-field label="Email">
-            <b-input v-model="email" type="email" use-html5-validation required />
+            <b-input
+              v-model="email"
+              type="email"
+              use-html5-validation
+              required
+            />
           </b-field>
-          <b-field label="Password" :type="passwordError && 'is-danger'" :message="passwordError">
+          <b-field
+            label="Password"
+            :type="passwordError && 'is-danger'"
+            :message="passwordError"
+          >
             <b-input
               v-model="password"
               type="password"
@@ -19,7 +26,10 @@
             />
           </b-field>
 
-          <b-field label="Confirm Password" :type="passwordError && 'is-danger'">
+          <b-field
+            label="Confirm Password"
+            :type="passwordError && 'is-danger'"
+          >
             <b-input
               v-model="confirmPassword"
               type="password"
@@ -36,10 +46,8 @@
           </b-field>
         </form>
       </template>
-      <template v-slot:footer-link>
-        <nuxt-link to="/login">
-          Already have an account? Log in
-        </nuxt-link>
+      <template #footer-link>
+        <nuxt-link to="/login"> Already have an account? Log in </nuxt-link>
       </template>
     </FormContainer>
   </div>
@@ -50,14 +58,14 @@ import FormContainer from '~/components/FormContainer'
 
 export default {
   components: {
-    FormContainer
+    FormContainer,
   },
   data() {
     return {
       email: '',
       password: '',
       confirmPassword: '',
-      passwordError: null
+      passwordError: null,
     }
   },
   fetch({ store, redirect }) {
@@ -88,32 +96,31 @@ export default {
       }
     },
     submitSignup(e) {
-      if (!this.email || !this.password) {
-        return this.$toast.open('Please provide an email and passowrd')
-      }
+      // if (!this.email || !this.password) {
+      //   return this.$toast.open('Please provide an email and passowrd')
+      // }
       e.preventDefault()
       this.$axios
         .$post('/api/users', {
           email: this.email,
-          password: this.password
+          password: this.password,
         })
         .then(() => {
-          this.$toast.open({
-            message: 'Signed up successfully',
-            type: 'is-success'
-          })
+          // this.$toast.open({
+          //   message: 'Signed up successfully',
+          //   type: 'is-success',
+          // })
           this.$router.push('/login')
         })
         .catch(() => {
-          this.$toast.open({
-            message: 'Something happened, try again',
-            type: 'is-danger'
-          })
+          // this.$toast.open({
+          //   message: 'Something happened, try again',
+          //   type: 'is-danger',
+          // })
         })
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>

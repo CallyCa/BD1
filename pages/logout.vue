@@ -1,8 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="subtitle">
-      Logging out
-    </h1>
+    <h1 class="subtitle">Logging out</h1>
   </section>
 </template>
 
@@ -12,9 +10,8 @@ export default {
     return $axios.$delete('/api/sessions').finally(() => {
       redirect('/')
     })
-  }
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>

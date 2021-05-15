@@ -40,7 +40,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     ['nuxt-express-module', { routesPath: 'express/api' }],
-    'nuxt-buefy'
+    'nuxt-buefy',
   ],
   /*
   ** Axios module configuration
